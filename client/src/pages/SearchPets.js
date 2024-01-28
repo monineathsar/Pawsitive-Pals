@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-// import { Routes, Route, useNavigate } from 'react-router-dom';
-// import SignUpForm from './SignupForm';
-// import LoginForm from './LoginForm';
-// import LoginModal from './LoginModal'
 import Auth from '../utils/auth';
 import { searchPetfinder } from '../utils/API';
 import { savePetIds, getSavedPetIds } from '../utils/localStorage';
 import { ADD_PET } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
-// import AnimalPage from './animalProfile';
-// import AnimalPage from './AnimalProfile';
-
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import Select from 'react-select';
-// import PhotoUnavailable from '../../public/photo-unavilible-Icon.png'
 
 const styles = {
   dropdownMenuStyle: {
@@ -56,9 +46,6 @@ const SearchPets = () => {
     }
     try {
       const response = await searchPetfinder(searchInput);
-      // console.log(response, "line 37");
-      // console.log(response.animals, "line 38");
-
       const petData = response.animals.map((pet) => ({
         petId: pet.id,
         name: pet.name || ['No name to display'],

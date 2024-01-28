@@ -88,23 +88,6 @@ const RequestQueue = (props) => {
                 </ListGroup>
                 </Tab>
             </Tabs>
-            {/* list of pending requests */}
-            {/* <Col>
-                <h4>Pending Requests</h4>
-
-            </Col> */}
-
-            {/* list of approved requests */}
-            {/* <Col>
-                <h4>Approved Requests</h4>
-
-            </Col> */}
-
-            {/* list of denied requests */}
-            {/* <Col>
-                <h4>Denied Requests</h4>
-                
-            </Col> */}
         </>
     )
 }

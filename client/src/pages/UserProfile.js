@@ -19,9 +19,6 @@ const UserProfile = () => {
   });
   const [deletePet] = useMutation(DELETE_PET);
   const userData = data?.user;
-  // const [show, setShow] = useState(false);
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
   const navigate = useNavigate();
   const navigateAnimal = (petId) => {
     navigate(`/animal/${petId}`);

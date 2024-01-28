@@ -1,15 +1,11 @@
-// import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { Form, Alert, Jumbotron, Button } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMutation } from '@apollo/client'
 
-
 import { SUBMIT_REQUEST, VALIDATE_PLAYDATE_REQUEST } from '../utils/mutations';
 import Auth from '../utils/auth';
-//import { Form, Alert, } from 'react-bootstrap';
-
 
 const PlaydateRequest = (props) => {
 

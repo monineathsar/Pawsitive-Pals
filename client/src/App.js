@@ -43,10 +43,6 @@ function App() {
               path='/saved'
               element={<UserProfile />}
             />
-             {/* <Route
-              path='/adminRequest'
-              element={<AdministratorRequests/>}
-            /> */}
             <Route
               path='/admin'
               element={<AdminRequestPage />}

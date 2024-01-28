@@ -26,23 +26,16 @@ export default function AnimalPage() {
             'Authorization': `Bearer ${tokenData.data.access_token}`
           }
         })
-        // const data = await response.json();
-        // return response.data;
         setPetData(response.data.animal);
       } catch (err) {
         console.log(err);
       }
     };
     queryPetId(petId);
-    // const petData = queryPetId(petId);
   }, [])
 
   const handlePlaydateRequest = (show) => {
     setShowModal(show);
-
-    // commented out so that the animalProfile page doesn't clear
-    // setPetData(petData?.id);
-
     setSelectedPet({petId: petData?.id, name: petData?.name, type: petData?.type})
   }
 

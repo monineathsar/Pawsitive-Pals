@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchPets from './pages/SearchPets';
 import UserProfile from './pages/UserProfile';
 import AdminRequestPage from './pages/AdministratorPage';

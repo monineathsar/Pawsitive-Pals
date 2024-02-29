@@ -80,7 +80,6 @@ const resolvers = {
 
     submitRequest: async (parent, args, context) => {
       if (context.user) {
-        console.log(context.user);
         const playdateRequest = await PlaydateRequest.create({
           ...args.input,
           pet: {

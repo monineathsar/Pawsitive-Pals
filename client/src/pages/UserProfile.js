@@ -39,8 +39,6 @@ const UserProfile = () => {
         variables: { id, token },
       });
 
-      console.log(deletedPet)
-
       removePetId(pet.petId);
     } catch (err) {
       console.error(err);

@@ -65,7 +65,6 @@ const SearchPets = () => {
         phone: pet.contact.phone,
         distance: pet.distance
       }));
-      petData.forEach((d) => console.log(d));
 
       setSearchedPets(petData);
       setSearchInput('');

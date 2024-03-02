@@ -36,10 +36,6 @@ const resolvers = {
       }
       const adminStatus = user.admin;
 
-      // if (!adminStatus) {
-      //   throw new AuthenticationError('Denied access')
-      // }
-
       const token = signToken(user);
 
       return { token, user };

@@ -6,7 +6,6 @@ import { searchPetfinder } from '../utils/API';
 import { savePetIds, getSavedPetIds } from '../utils/localStorage';
 import { ADD_PET } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
-
 import Select from 'react-select';
 
 const styles = {
@@ -93,6 +92,10 @@ const SearchPets = () => {
   const navigateAnimal = (petId) => {
     navigate(`/animal/${petId}`);
   };
+  const handleSelectChange = (selectedOption) => {
+    setSearchInput(selectedOption.label, selectedOption.value);
+  };
+
   return (
     <>
       <Jumbotron fluid className='text-light yellow-bg'>
@@ -103,7 +106,8 @@ const SearchPets = () => {
               <Col xs={12} md={8}>
                 <Select
                   options={animalTypes}
-                  onChange={opt => setSearchInput(opt.label, opt.value)}
+                  value={searchInput.label}
+                  onChange={handleSelectChange}
                 />
               </Col>
               <Col xs={12} md={4} lg={4}>

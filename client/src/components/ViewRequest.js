@@ -14,7 +14,7 @@ const ViewingRequest = (props) => {
     const fromDate = new Date();
     const toDate =  new Date();
 
-    if(requestInfo.fromDate != undefined) {
+    if(requestInfo.fromDate !== undefined) {
         fromDate.setMilliseconds(requestInfo.fromDate/1000);
         toDate.setMilliseconds(requestInfo.toDate/1000);
     }
@@ -24,9 +24,9 @@ const ViewingRequest = (props) => {
             variables: {id: requestInfo._id, approvalStatus: approvalStatus},
             update: cache => {
                 const requests = cache.readQuery({ query: QUERY_PLAYDATES });
-                const filterRequests = requests.playdateRequests?.filter(request => request._id != requestInfo._id);
+                const filterRequests = requests.playdateRequests?.filter(request => request._id !== requestInfo._id);
                 const updatedRequests = [...filterRequests];
-                const processRequest = requests.playdateRequests?.filter(request => request._id == requestInfo._id);
+                const processRequest = requests.playdateRequests?.filter(request => request._id === requestInfo._id);
                 const updatedRequest = {
                     ...processRequest[0],
                     approvalStatus: approvalStatus
@@ -42,7 +42,7 @@ const ViewingRequest = (props) => {
     return (
         <>
             <Card>
-                <Card.Header className="text-center">{petInfo.name==undefined?"Please select a request":petInfo.name+" ("+petInfo.petId+")"}</Card.Header>
+                <Card.Header className="text-center">{petInfo.name===undefined?"Please select a request":petInfo.name+" ("+petInfo.petId+")"}</Card.Header>
                 <Card.Body>
                     <Card.Title className="text-center">Applicant Contact Info</Card.Title>
                     <Card.Text>

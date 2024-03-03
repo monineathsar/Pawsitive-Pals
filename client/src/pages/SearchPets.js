@@ -24,8 +24,6 @@ const animalTypes = [
 ];
 
 const SearchPets = () => {
-
-  const [showModal, setShowModal] = useState(false);
   // create state for holding returned google api data
   const [searchedPets, setSearchedPets] = useState([]);
   // create state for holding our search field data

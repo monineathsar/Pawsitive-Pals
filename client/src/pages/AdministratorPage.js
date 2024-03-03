@@ -3,7 +3,6 @@ import { Row, Col, Container } from 'react-bootstrap';
 import RequestQueue from "../components/RequestQueue";
 import ViewRequest from "../components/ViewRequest";
 import React, { useState } from 'react';
-import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { FETCH_REQUESTER } from '../utils/mutations';
 

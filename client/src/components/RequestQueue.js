@@ -1,6 +1,6 @@
 //request queue on sidebar that shows pending requests, approved and denied requests
 import { useQuery } from '@apollo/client';
-import { ListGroup, Col, Tab, Tabs } from 'react-bootstrap';
+import { ListGroup, Tab, Tabs } from 'react-bootstrap';
 import { QUERY_PLAYDATES } from '../utils/queries';
 
 const RequestQueue = (props) => {
@@ -25,7 +25,7 @@ const RequestQueue = (props) => {
                 justify>
                 <Tab eventKey="pending" title="Pending">
                     <ListGroup as="ol">
-                        {data.playdateRequests.filter((request) => request.approvalStatus == 0).map((request) => {
+                        {data.playdateRequests.filter((request) => request.approvalStatus === 0).map((request) => {
                             return (
                                 <ListGroup.Item
                                 as="li"
@@ -47,7 +47,7 @@ const RequestQueue = (props) => {
                 </Tab>
                 <Tab eventKey="approved" title="Approved">
                     <ListGroup as="ol">
-                        {data.playdateRequests.filter((request) => request.approvalStatus == 1).map((request) => {
+                        {data.playdateRequests.filter((request) => request.approvalStatus === 1).map((request) => {
                             return (
                                 <ListGroup.Item
                                 as="li"
@@ -68,7 +68,7 @@ const RequestQueue = (props) => {
                 </Tab>
                 <Tab eventKey="denied" title="Denied">
                 <ListGroup as="ol">
-                        {data.playdateRequests.filter((request) => request.approvalStatus == 2).map((request) => {
+                        {data.playdateRequests.filter((request) => request.approvalStatus === 2).map((request) => {
                             return (
                                 <ListGroup.Item
                                 as="li"

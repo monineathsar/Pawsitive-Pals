@@ -1,11 +1,9 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
-
+import { Form, Button } from 'react-bootstrap';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client'
-import { every } from 'lodash';
 
 const Demo = () => {
 

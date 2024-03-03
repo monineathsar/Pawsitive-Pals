@@ -35,7 +35,7 @@ const UserProfile = () => {
       return false;
     }
     try {
-      const deletedPet = await deletePet({
+      await deletePet({
         variables: { id, token },
       });
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
@@ -29,15 +29,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <ApolloProvider client={client}>
     <Router>
       <Routes>
-        <Route path='/*'element={<App />}/>
+        <Route path='/*' element={<App />} />
       </Routes>
     </Router>
-    </ApolloProvider >
-  </React.StrictMode>,
-  document.getElementById('root')
+  </ApolloProvider>
 );

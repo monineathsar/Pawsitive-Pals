@@ -58,7 +58,7 @@ app we wanted to build we immediately started a wireframe. From there we designe
 wanted to include in our app, made a checklist of all items we needed to complete and started to delegate
 each task to a team member. We constantly checked in with each other and discussed the best ways in which we could complete our tasks. We continued to monitor each other's progress and updated our wireframe througout the process as the mechanics behind our project beceame more clear. Most of the back end was created first and then the front end was completed afterwards. 
 ### How to run application locally
-1. Add .env in the root directly with value from code snippet below.
+1. Add .env in the ./client/ with value from code snippet below.
 ```
 REACT_APP_API_KEY=ktNNQFUVhHXYOZ7wCcEoaIBOKbz5tKMxQEGhXWSgqXQj2IjEQH
 REACT_APP_SECRET=U06FD0luwOTfD3FW4xq2FnlGHxdjEBBmg3E596I4

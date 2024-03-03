@@ -80,10 +80,9 @@ const SearchPets = () => {
       return false;
     }
     try {
-      const petData = await addPet({
+      await addPet({
         variables: { ...petToSave },
       });
-      console.log(petData)
       // if pet successfully saves to user's account, save pet id to state
       setSavedPetIds([...savedPetIds, petToSave.petId]);
     } catch (err) {

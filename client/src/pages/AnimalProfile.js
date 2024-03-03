@@ -32,7 +32,7 @@ export default function AnimalPage() {
       }
     };
     queryPetId(petId);
-  }, [])
+  })
 
   const handlePlaydateRequest = (show) => {
     setShowModal(show);

@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal } from 'react-bootstrap';
 import logo250 from '../assets/PP-logoandwords-blue-150px.png';
-
 import LoginModal from './LoginModal'
 import Auth from '../utils/auth';
 
-const AppNavbar = () => {
-  // set modal display state
-  const [showModal, setShowModal] = useState(false);
+const AppNavbar = ({showModal, updateShowModal}) => {
+
+  const handleShowModal = (newState) => {
+    updateShowModal(newState);
+  }
 
   return (
     <>
@@ -45,7 +46,7 @@ const AppNavbar = () => {
                   <Nav.Link onClick={Auth.logout} style={{ color: "#003049" }}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)} style={{ color: "#003049" , fontWeight: "bold" }}>Login</Nav.Link>
+                <Nav.Link onClick={() => handleShowModal(true)} style={{ color: "#003049" , fontWeight: "bold" }}>Login</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
@@ -55,7 +56,7 @@ const AppNavbar = () => {
       <Modal
         size='lg'
         show={showModal}
-        onHide={() => setShowModal(false)}
+        onHide={() => handleShowModal(false)}
         aria-labelledby='signup-modal'>
         {/* tab container to do either signup or login component */}
         <LoginModal />

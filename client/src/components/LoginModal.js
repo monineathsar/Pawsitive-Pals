@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Nav, Modal, Tab } from 'react-bootstrap';
 import Demo from './Demo';
 import SignUpForm from './SignupForm';
@@ -6,7 +6,6 @@ import LoginForm from './LoginForm';
 
 const LoginModal = () => {
   // set modal display state
-  const [showModal, setShowModal] = useState(false);
   return (
     <>
         {/* tab container to do either signup or login component plus demo*/}
@@ -29,13 +28,13 @@ const LoginModal = () => {
           <Modal.Body>
             <Tab.Content>
             <Tab.Pane eventKey='demo'>
-                <Demo handleModalClose={() => setShowModal(false)} />
+                <Demo  />
               </Tab.Pane>
               <Tab.Pane eventKey='login'>
-                <LoginForm handleModalClose={() => setShowModal(false)} />
+                <LoginForm  />
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
-                <SignUpForm handleModalClose={() => setShowModal(false)} />
+                <SignUpForm  />
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

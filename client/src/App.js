@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import SearchPets from './pages/SearchPets';
 import UserProfile from './pages/UserProfile';
@@ -7,9 +7,15 @@ import AppNavbar from './components/Navbar';
 import AnimalProfile from './pages/AnimalProfile';
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
+
+  const updateShowModal = (newState) => {
+    setShowModal(newState);
+  }
+
   return (
     <>
-      <AppNavbar />
+      <AppNavbar showModal={showModal} updateShowModal={updateShowModal} />
       <Routes>
         <Route
           path='/'

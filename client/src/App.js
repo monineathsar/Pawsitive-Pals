@@ -4,7 +4,7 @@ import SearchPets from './pages/SearchPets';
 import UserProfile from './pages/UserProfile';
 import AdminRequestPage from './pages/AdministratorPage';
 import AppNavbar from './components/Navbar';
-import AnimalPage from './pages/AnimalProfile';
+import AnimalProfile from './pages/AnimalProfile';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         />
         <Route
           path='/animal/:petId'
-          element={<AnimalPage />}
+          element={<AnimalProfile />}
         />
         <Route
           path='*'

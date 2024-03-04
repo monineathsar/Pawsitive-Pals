@@ -4,7 +4,7 @@ import { Button, Modal } from 'react-bootstrap';
 import PlaydateRequestForm from '../components/PlaydateRequest';
 import axios from 'axios';
 
-export default function AnimalPage() {
+export default function AnimalProfile() {
   const [showModal, setShowModal] = useState(false);
   const { petId } = useParams();
   const [petData, setPetData] = useState({});

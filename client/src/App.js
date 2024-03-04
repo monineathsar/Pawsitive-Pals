@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<SearchPets />}
+          element={<SearchPets updateShowModal={updateShowModal} />}
         />
         <Route
           path='/saved'

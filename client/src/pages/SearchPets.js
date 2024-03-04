@@ -6,7 +6,6 @@ import { searchPetfinder } from '../utils/API';
 import { savePetIds, getSavedPetIds } from '../utils/localStorage';
 import { ADD_PET } from '../utils/mutations';
 import { useMutation } from '@apollo/client';
-import Select from 'react-select';
 
 const styles = {
   dropdownMenuStyle: {
@@ -22,7 +21,7 @@ const animalTypes = [
   { label: 'Rabbit', value: 'rabbit' },
 ];
 
-const SearchPets = () => {
+const SearchPets = ({updateShowModal}) => {
   // create state for holding returned google api data
   const [searchedPets, setSearchedPets] = useState([]);
   // create state for holding our search field data
@@ -35,6 +34,7 @@ const SearchPets = () => {
   useEffect(() => {
     return () => savePetIds(savedPetIds);
   });
+
   // create method to search for pets and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -74,6 +74,10 @@ const SearchPets = () => {
   const handleSelectChange = (selectedOption) => {
     setSearchInput(selectedOption);
   };
+
+  const handleShowModal = (newState) => {
+    updateShowModal(newState)
+  }
 
   // create function to handle saving a pet to our database
   const handleSavePet = async (petId) => {
@@ -150,14 +154,19 @@ const SearchPets = () => {
                     <p className='small'>{pet.type}</p>
                     <Card.Text>{pet.description}</Card.Text>
                   </Card.Body>
-                  {Auth.loggedIn() && (
+                  {Auth.loggedIn() ? (
                     <Button
                       disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
                       className='btn-block med-orange-bg'
-                      onClick={() => handleSavePet(pet.petId)}>
+                      onClick={() => handleSavePet(pet.petId)}
+                    >
                       {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
                         ? 'This pet has already been saved!'
                         : 'Save this Pet!'}
+                    </Button>
+                  ) : (
+                    <Button className='btn-block med-red-bg' onClick={() => handleShowModal(true)}>
+                      Sign up to meet a pal
                     </Button>
                   )}
                 </Card>

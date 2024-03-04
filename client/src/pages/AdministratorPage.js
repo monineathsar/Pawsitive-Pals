@@ -14,7 +14,7 @@ const AdministratorRequests = () => {
   const [fetchRequester] = useMutation(FETCH_REQUESTER);
 
   const onSelectRequest = async (request) => {
-    const user = await fetchRequester({variables: {username: request.requester}});
+    const user = await fetchRequester({ variables: { username: request.requester } });
     setUserInfo(user.data.requester);
     setRequestInfo(request);
     setPetInfo(request.pet);
@@ -22,17 +22,15 @@ const AdministratorRequests = () => {
 
   return (
     <>
-
       <Container style={{ color: "black" }}>
         <h1 className='text-center'>Viewing Playdate Requests</h1>
       </Container>
-
       <Row>
         <Col sm={7}>
-          <ViewRequest userInfo={userInfo} requestInfo={requestInfo} petInfo={petInfo}/>
+          <ViewRequest userInfo={userInfo} requestInfo={requestInfo} petInfo={petInfo} />
         </Col>
         <Col sm={5}>
-          <RequestQueue onSelectRequest={onSelectRequest}/>
+          <RequestQueue onSelectRequest={onSelectRequest} />
         </Col>
       </Row>
 

@@ -3,12 +3,13 @@ import { useQuery } from '@apollo/client';
 import { ListGroup, Tab, Tabs } from 'react-bootstrap';
 import { QUERY_PLAYDATES } from '../utils/queries';
 
-const RequestQueue = (props) => {
+const RequestQueue = ({onSelectRequest}) => {
 
-    const {loading, data } = useQuery(QUERY_PLAYDATES);
+    const {loading, data, refetch} = useQuery(QUERY_PLAYDATES);
 
     const viewSingleRequest = (request) => {
-        props.onSelectRequest(request);
+        onSelectRequest(request);
+        refetch();
     }
 
     // if data isn't here yet, say so

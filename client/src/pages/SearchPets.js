@@ -69,6 +69,12 @@ const SearchPets = () => {
       console.error(err);
     }
   };
+
+  // method to set state for searchInput
+  const handleSelectChange = (selectedOption) => {
+    setSearchInput(selectedOption);
+  };
+
   // create function to handle saving a pet to our database
   const handleSavePet = async (petId) => {
     // find the pet in `searchedPets` state by the matching id
@@ -88,12 +94,11 @@ const SearchPets = () => {
       console.error(err);
     }
   };
+
+  // routing
   const navigate = useNavigate();
   const navigateAnimal = (petId) => {
     navigate(`/animal/${petId}`);
-  };
-  const handleSelectChange = (selectedOption) => {
-    setSearchInput(selectedOption.label, selectedOption.value);
   };
 
   return (
@@ -104,14 +109,17 @@ const SearchPets = () => {
           <Form onSubmit={handleFormSubmit} style={styles.dropdownMenuStyle}>
             <Form.Row>
               <Col xs={12} md={8}>
-                <Select
-                  options={animalTypes}
-                  value={searchInput.label}
-                  onChange={handleSelectChange}
-                />
+                <Form.Control as="select" onChange={(e) => handleSelectChange(e.target.value)}>
+                  <option value="">Select an option</option>
+                  {animalTypes.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </Form.Control>
               </Col>
               <Col xs={12} md={4} lg={4}>
-                <Button type='submit' className='med-orange-bg' size='lg'>
+                <Button type='submit' className='med-orange-bg' size='md'>
                   Search
                 </Button>
               </Col>

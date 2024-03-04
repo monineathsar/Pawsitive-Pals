@@ -5,7 +5,7 @@ import { CREATE_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client'
 
-const SignupForm = () => {
+const SignupForm = ({updateShowModal}) => {
   // set initial form state
   const [userFormData, setUserFormData] = useState({
     username: '',
@@ -72,6 +72,7 @@ const SignupForm = () => {
         variables: { ...userFormData }
       });
       Auth.login(data.createUser.token);
+      updateShowModal(false);
     } catch (err) {
       console.error(err);
       setShowAlert(true);

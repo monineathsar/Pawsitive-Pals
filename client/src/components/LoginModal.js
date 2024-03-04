@@ -4,7 +4,7 @@ import Demo from './Demo';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
 
-const LoginModal = () => {
+const LoginModal = ({updateShowModal}) => {
   // set modal display state
   return (
     <>
@@ -28,13 +28,13 @@ const LoginModal = () => {
           <Modal.Body>
             <Tab.Content>
             <Tab.Pane eventKey='demo'>
-                <Demo  />
+                <Demo updateShowModal={updateShowModal}/>
               </Tab.Pane>
               <Tab.Pane eventKey='login'>
-                <LoginForm  />
+                <LoginForm  updateShowModal={updateShowModal}/>
               </Tab.Pane>
               <Tab.Pane eventKey='signup'>
-                <SignUpForm  />
+                <SignUpForm updateShowModal={updateShowModal}/>
               </Tab.Pane>
             </Tab.Content>
           </Modal.Body>

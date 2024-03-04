@@ -6,7 +6,7 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client'
 
-const LoginForm = () => {
+const LoginForm = ({updateShowModal}) => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -33,7 +33,7 @@ const LoginForm = () => {
         variables: { ...userFormData },
       });
       Auth.login(data.login.token);
-      
+      updateShowModal(false);
     } catch (err) {
       console.error(err);
       setShowAlert(true);

@@ -59,7 +59,7 @@ const AppNavbar = ({showModal, updateShowModal}) => {
         onHide={() => handleShowModal(false)}
         aria-labelledby='signup-modal'>
         {/* tab container to do either signup or login component */}
-        <LoginModal />
+        <LoginModal updateShowModal={updateShowModal}/>
       </Modal>
     </>
   );

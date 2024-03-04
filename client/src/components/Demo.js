@@ -5,7 +5,7 @@ import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client'
 
-const Demo = () => {
+const Demo = ({updateShowModal}) => {
 
     const [validated] = useState(false);
     const [login] = useMutation(LOGIN);
@@ -26,6 +26,7 @@ const Demo = () => {
             });
 
             Auth.login(data.login.token);
+            updateShowModal(false);
         } catch (err) {
             console.error(err);
         }

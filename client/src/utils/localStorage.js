@@ -7,6 +7,7 @@ export const getSavedPetIds = () => {
 };
 
 export const savePetIds = (petIdArr) => {
+  console.log(petIdArr);
   if (petIdArr.length) {
     localStorage.setItem('saved_pets', JSON.stringify(petIdArr));
   } else {

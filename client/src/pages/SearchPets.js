@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Auth from '../utils/auth';
@@ -27,14 +27,9 @@ const SearchPets = ({updateShowModal}) => {
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
   // create state to hold saved petId values
-  const [savedPetIds, setSavedPetIds] = useState(getSavedPetIds());
-  const [addPet] = useMutation(ADD_PET)
-  // set up useEffect hook to save `savedPetIds` list to localStorage on component unmount
-  // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-  useEffect(() => {
-    return () => savePetIds(savedPetIds);
-  });
+  const [petIds, setPetIds] = useState(getSavedPetIds());
 
+  const [addPet] = useMutation(ADD_PET)
   // create method to search for pets and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -84,6 +79,7 @@ const SearchPets = ({updateShowModal}) => {
     // find the pet in `searchedPets` state by the matching id
     const petToSave = searchedPets.find((pet) => pet.petId === petId);
     // get token
+
     const token = Auth.loggedIn() ? Auth.getToken() : null;
     if (!token) {
       return false;
@@ -93,7 +89,8 @@ const SearchPets = ({updateShowModal}) => {
         variables: { ...petToSave },
       });
       // if pet successfully saves to user's account, save pet id to state
-      setSavedPetIds([...savedPetIds, petToSave.petId]);
+      setPetIds([...petIds, petToSave.petId]);
+      savePetIds(petIds)
     } catch (err) {
       console.error(err);
     }
@@ -156,11 +153,11 @@ const SearchPets = ({updateShowModal}) => {
                   </Card.Body>
                   {Auth.loggedIn() ? (
                     <Button
-                      disabled={savedPetIds?.some((savedPetId) => savedPetId === pet.petId)}
+                      disabled={petIds?.some((petId) => petId === pet.petId)}
                       className='btn-block med-orange-bg'
                       onClick={() => handleSavePet(pet.petId)}
                     >
-                      {savedPetIds?.some((savedPetId) => savedPetId === pet.petId)
+                      {petIds?.some((petId) => petId === pet.petId)
                         ? 'This pet has already been saved!'
                         : 'Save this Pet!'}
                     </Button>

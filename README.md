@@ -25,11 +25,11 @@ SO THAT I can get have a pet friend or get the experience of what it may be like
 ### Acceptance Criteria
 ```
 GIVEN a user friendly web application
-WHEN I input my username and password
-THEN I sign up and log in to my account
 WHEN I search for a type of animal on the application (ex: dogs, cats, rabbits, guinea pigs, etc.) 
 THEN I will see a list of said animal that are available for playdates
 WHEN I select on the animal that matches my interests
+THEN I am prompted to sign up, log in, or use the demo accounts
+WHEN I request a playdate for an animal
 THEN I am presented with a playdate request form to fill out
 WHEN I submit the form, it will be send to the shelter / adoption organization for approval
 THEN I will recieve a notice of the playdate approval status by the shelter / adoption organization

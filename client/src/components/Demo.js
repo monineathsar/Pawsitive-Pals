@@ -35,12 +35,15 @@ const Demo = ({updateShowModal}) => {
 
     return (
         <>
+        {/* Login/demo modal */}
             <Form noValidate validated={validated}>
                 <div className="d-grid gap-2">
+                    {/* User Demo Button */}
                     <Button onClick={(event) => handleButtonClick(event, 'test@gmail.com', 'test')}
                         variant='primary' size="lg" block>
                         User
                     </Button>
+                    {/* Admin Demo Button */}
                     <Button onClick={(event) => handleButtonClick(event, 'admin@gmail.com', 'admin')}
                         variant='secondary' size="lg" block>
                         Admin

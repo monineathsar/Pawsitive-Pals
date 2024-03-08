@@ -267,15 +267,6 @@ const SignupForm = ({updateShowModal}) => {
             <option value="10+ years">10+ years</option>
           </Form.Control>
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label htmlFor='admin'>Administrator</Form.Label>
-          <Form.Check
-            type='switch'
-            id="custom-switch"
-            name='admin'
-            onChange={handleInputChange}
-          />
-        </Form.Group> */}
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'

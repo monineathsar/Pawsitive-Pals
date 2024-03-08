@@ -48,10 +48,12 @@ const LoginForm = ({updateShowModal}) => {
 
   return (
     <>
+    {/*Login form */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
+        {/* login email */}
         <Form.Group>
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
@@ -64,7 +66,7 @@ const LoginForm = ({updateShowModal}) => {
           />
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
-
+        {/* login password */}
         <Form.Group>
           <Form.Label htmlFor='password'>Password</Form.Label>
           <Form.Control
@@ -77,6 +79,7 @@ const LoginForm = ({updateShowModal}) => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+        {/* Login button */}
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type='submit'
